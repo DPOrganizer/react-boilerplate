@@ -1,5 +1,7 @@
 # DPOrganizer React Boilerplate
 
+[![Build Status](https://travis-ci.org/DPOrganizer/react-boilerplate.svg?branch=master)](https://travis-ci.org/DPOrganizer/react-boilerplate)
+
 This is a very simple React boilerplate setup. It includes a basic starting point which you can start building from.
 
 ## Requirements
