@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 
 ReactDOM.render(
-	<App />,
+	<App myProp="I'm a prop value" />,
 	document.body.appendChild(document.createElement('div')),
 );

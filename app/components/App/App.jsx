@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 require('./App.css');
 
 class App extends React.Component {
+	static propTypes = {
+		myProp: PropTypes.string.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -29,6 +34,8 @@ class App extends React.Component {
 				<h1>Hello World</h1>
 
 				<p>The time is <b>{this.state.time.toString()}</b></p>
+
+				<p>My prop value: {this.props.myProp}</p>
 			</div>
 		);
 	}
