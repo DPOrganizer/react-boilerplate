@@ -1,8 +1,7 @@
 const Hapi = require('hapi');
 
 // Create a server with a host and port
-const server = new Hapi.Server();
-server.connection({
+const server = new Hapi.Server({
 	host: 'localhost',
 	port: 8000,
 });
@@ -11,14 +10,12 @@ server.connection({
 server.route({
 	method: 'GET',
 	path: '/',
-	handler: (request, reply) => reply('Nothing to see here'),
+	handler: () => 'Nothing to see here',
 });
 
-// Start the server
-server.start((err) => {
-	if (err) {
-		throw err;
-	}
-
-	console.log('Server running at:', server.info.uri);
-});
+server
+	.start()
+	.then(() => {
+		console.log('Server running at:', server.info.uri);
+	})
+	.catch(err => console.log(err));
