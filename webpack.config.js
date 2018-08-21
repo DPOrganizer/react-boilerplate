@@ -9,10 +9,10 @@ module.exports = {
 		inline: true,
 		progress: true,
 		contentBase: './app',
-		port: 8080,
+		port: 8090,
 		proxy: {
 			'/api/*': {
-				target: 'http://localhost:8000',
+				target: 'http://localhost:3000',
 				pathRewrite: {
 					'/api': '',
 				},
@@ -48,6 +48,6 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+		new OpenBrowserPlugin({ url: 'http://localhost:8090' }),
 	],
 };
