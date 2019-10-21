@@ -1,68 +1,55 @@
 {
-  "name": "dporganizer-react-boilerplate",
-  "version": "1.0.0",
-  "description": "",
-  "author": "DPOrganizer",
-  "license": "MIT",
-  "main": "app/main.jsx",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "lint": "eslint '@(api|app)/**/*.@(js|jsx)'",
-    "test": "jest",
-    "test-coverage": "jest --coverage",
-    "build": "webpack",
-    "start": "concurrently \"node api/server.js\" \"webpack-dev-server --devtool eval --progress --hot --content-base app\""
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.js'",
+    "security-audit": "audit-ci --config audit.json",
+    "postinstall": "yarn run security-audit"
   },
-  "dependencies": {
-    "babel-runtime": "6.26.0",
-    "hapi": "17.2.0",
-    "prop-types": "15.6.0",
-    "react": "16.2.0",
-    "react-dom": "16.2.0"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "devDependencies": {
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.2.1",
-    "babel-jest": "22.1.0",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-decorators-legacy": "1.3.4",
-    "babel-plugin-transform-runtime": "6.23.0",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-react": "6.24.1",
-    "babel-preset-stage-0": "6.24.1",
-    "concurrently": "3.5.1",
-    "copy-webpack-plugin": "4.3.1",
-    "css-loader": "0.28.9",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
-    "eslint": "4.16.0",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-jsx-a11y": "6.0.3",
-    "eslint-plugin-react": "7.5.1",
-    "jest": "22.1.4",
-    "jest-css-modules": "1.1.0",
-    "open-browser-webpack-plugin": "0.0.5",
-    "pre-commit": "1.2.2",
-    "react-test-renderer": "16.2.0",
-    "style-loader": "0.19.1",
-    "webpack": "3.10.0",
-    "webpack-dev-server": "2.11.1"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "jest": {
-    "setupTestFrameworkScriptFile": "./test/setup.js",
-    "transform": {
-      ".*": "jest-css-modules"
-    },
-    "coverageThreshold": {
-      "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
-      }
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn test --watchAll=false",
+      "pre-push": "yarn run security-audit"
     }
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0"
+  },
+  "devDependencies": {
+    "audit-ci": "^2.4.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.19.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2"
+  }
 }

@@ -1,0 +1,5 @@
+# Prettier yaml config -=- https://prettier.io/docs/en/configuration.html
+arrowParens: always
+singleQuote: true
+trailingComma: es5
+useTabs: false
